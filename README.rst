@@ -1,9 +1,9 @@
-=eatitup=
+h1 eatitup
 
-==Introduction==
+h2 Introduction
 
 Welcome to the eatitup project.
 
-==Getting started==
+h2 Getting started
 
 * Clone the eatitup repository to your local machine.
