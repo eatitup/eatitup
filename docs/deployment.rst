@@ -1,4 +1,4 @@
-Deployment
+.. _deployment: Deployment
 ==========
 
 Introduction
