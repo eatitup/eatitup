@@ -9,7 +9,7 @@ class Category(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
-        """ Override for __str__ method
+        """ Return categories name
         """
         return self.name
 
@@ -23,6 +23,17 @@ class Food(models.Model):
     category = models.ForeignKey(Category, blank=True)
 
     def __str__(self):
-        """ Override for __str__ method
+        """ Return foods name
+        """
+        return self.name
+
+class Unit(models.Model):
+    """ Unit model
+    """
+
+    name = models.CharField(max_length=20)
+
+    def __str__(self):
+        """ Return Units name
         """
         return self.name

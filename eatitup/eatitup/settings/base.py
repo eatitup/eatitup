@@ -42,6 +42,7 @@ EAT_IT_UP_APPS = (
     # Our custom apps
     'users',
     'food',
+    'store_cupboard',
 )
 
 INSTALLED_APPS = DJANGO_DEFAULT_APPS + EXTERNAL_APPS + EAT_IT_UP_APPS
