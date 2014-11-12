@@ -41,6 +41,13 @@ TEMPLATE_LOADERS = (
 
 # Application definition
 
+
+
+AUTOCOMPLETE = (
+    # Auto complete before django.contrib.admin
+    'autocomplete_light',
+)
+
 DJANGO_DEFAULT_APPS = (
     # Standard Django apps
     'django.contrib.admin',
@@ -63,7 +70,7 @@ EAT_IT_UP_APPS = (
     'store_cupboard',
 )
 
-INSTALLED_APPS = DJANGO_DEFAULT_APPS + EXTERNAL_APPS + EAT_IT_UP_APPS
+INSTALLED_APPS = AUTOCOMPLETE + DJANGO_DEFAULT_APPS + EXTERNAL_APPS + EAT_IT_UP_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
