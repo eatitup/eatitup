@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-{{ unit_form.as_p }}
-
-{{ item_form.as_p }}
+<h1>Add item to store cupboard</h1>
+<form class="form-inline" role="form" action="{% url 'store_cupboard_add' %}" method="post">
+  {% csrf_token %}
+  {% for field in item_form %}
+  <div class="form-group">
+    {{ field.label_tag }}
+    {{ field }}
+  </div>
+  {% endfor %}
+  <input type="submit" value="Save">
+</form>
 
 {% endblock %}

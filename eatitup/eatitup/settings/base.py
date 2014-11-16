@@ -1,3 +1,5 @@
+from django.core.urlresolvers import reverse_lazy
+
 """
 base settings for eatitup project.
 """
@@ -86,6 +88,7 @@ ROOT_URLCONF = 'eatitup.urls'
 
 WSGI_APPLICATION = 'eatitup.wsgi.application'
 
+LOGIN_URL = reverse_lazy('user_login')
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

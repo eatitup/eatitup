@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 from store_cupboard.models import Item
-from store_cupboard.forms import UnitModelForm, ItemModelForm
+from store_cupboard.forms import ItemModelForm
 
+@login_required
 def index(request):
     """ Index of store cupboard
     """
@@ -15,20 +17,24 @@ def index(request):
 
     return render(request, 'store_cupboard/index.html', c)
 
+@login_required
 def add(request):
     """ Add a new item to the users store cupboard
     """
     user = request.user
 
     if request.method == 'POST':
-        unit_form = UnitModelForm(request.POST)
         item_form = ItemModelForm(request.POST)
+        item = item_form.save(commit=False)
+        item.owner = user
+        item.save()
+
+        return redirect('store_cupboard_index')
+
     else:
-        unit_form = UnitModelForm()
         item_form = ItemModelForm()
 
     c = {
-        'unit_form': unit_form,
         'item_form': item_form,
     }
 

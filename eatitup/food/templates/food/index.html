@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>All Food</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Food</h1>
+    <ul>
+        {% for food in foods %}
+        <li>{{ food.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
