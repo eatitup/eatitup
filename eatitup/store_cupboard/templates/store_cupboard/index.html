@@ -2,10 +2,32 @@
 
 {% block content %}
 <h1>{{ user.username }}'s Store Cupboard</h1>
-<ul>
-  {% for item in items %}
-  <li>{{ item }} - {{ item.quantity }}{{ item.unit }}</li>
-  {% endfor %}
-</ul>
-
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Use By Date</th>
+            <th>Is out of date?</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.unit }}</td>
+            <td>{{ item.use_by_date|date:"d-m-Y" }}</td>
+            <td>
+                {% if item.is_out_of_date %}
+                    <p>Yes</p>
+                {% else %}
+                    <p>No</p>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

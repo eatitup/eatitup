@@ -13,7 +13,9 @@ class Category(models.Model):
         """
         return self.name
 
+
 class Unit(models.Model):
+
     """ Unit model
     """
 
@@ -25,7 +27,9 @@ class Unit(models.Model):
         """
         return self.name
 
+
 class UnitConversion(models.Model):
+
     """ Converts between different units
     """
 
@@ -37,6 +41,18 @@ class UnitConversion(models.Model):
         """ Return Conversion name
         """
         return "%s - %s" % (self.unit_a, self.unit_b)
+
+    def convert_a_to_b(self):
+        """ Converts unit a to unit b
+        """
+        return unit_a * conversion
+
+    def convert_b_to_a(self):
+        """ Converts unit b to unit a
+        """
+        return unit_b / conversion
+
+
 class Food(models.Model):
 
     """ Food Model
