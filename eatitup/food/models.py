@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 
 
@@ -61,6 +62,7 @@ class Food(models.Model):
     name = models.CharField(max_length=50)
     category = models.ForeignKey(Category, blank=True)
     default_unit = models.ForeignKey(Unit, blank=True)
+    notification_period = models.IntegerField(default=7)
 
     def __str__(self):
         """ Return foods name

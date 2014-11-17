@@ -3,31 +3,29 @@
 {% block content %}
 <h1>{{ user.username }}'s Store Cupboard</h1>
 <table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Unit</th>
-            <th>Use By Date</th>
-            <th>Is out of date?</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in items %}
-        <tr>
-            <td>{{ item }}</td>
-            <td>{{ item.quantity }}</td>
-            <td>{{ item.unit }}</td>
-            <td>{{ item.use_by_date|date:"d-m-Y" }}</td>
-            <td>
-                {% if item.is_out_of_date %}
-                    <p>Yes</p>
-                {% else %}
-                    <p>No</p>
-                {% endif %}
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Unit</th>
+      <th>Use By Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+      {% if item.is_out_of_date %}
+      <tr class="danger">
+      {% elif item.is_nearing_end_of_life %}
+      <tr class="warning">
+      {% else %}
+      <tr></tr>
+      {% endif %}
+        <td>{{ item }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.unit }}</td>
+        <td>{{ item.use_by_date|date:"d-m-Y" }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
 </table>
 {% endblock %}
