@@ -63,6 +63,7 @@ DJANGO_DEFAULT_APPS = (
 EXTERNAL_APPS = (
     'django_adminlte',
     'debug_toolbar.apps.DebugToolbarConfig',
+    'social.apps.django_app.default',
 )
 
 EAT_IT_UP_APPS = (
@@ -73,6 +74,22 @@ EAT_IT_UP_APPS = (
 )
 
 INSTALLED_APPS = AUTOCOMPLETE + DJANGO_DEFAULT_APPS + EXTERNAL_APPS + EAT_IT_UP_APPS
+
+# Authentication Backends
+AUTHENTICATION_BACKENDS = (
+    'social.backends.twitter.TwitterOAuth',
+)
+
+SOCIAL_AUTH_TWITTER_KEY         = 'bf2EVUl5FSy3MrV8xPZVR7kdi'
+SOCIAL_AUTH_TWITTER_SECRET      = 'mckFi5vA7Jlh13FGrX8HaXuRrpBnJAZ6CvahJnYdttiwIIjthD'
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
+)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

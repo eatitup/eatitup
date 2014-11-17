@@ -11,10 +11,9 @@ class ItemManager(models.Manager):
     def get_out_of_date(self, user):
         """ Return all the items which are out of date for a specific user
         """
-        return self.get_query_set().filter(self.is_out_of_date()==True)
+        return self.filter(use_by_date__lt=timezone.now(), owner=user)
 
 class Item(models.Model):
-
     """ Item Model
         Represents a food item inside a users storecupboard
     """

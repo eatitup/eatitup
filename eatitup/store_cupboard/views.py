@@ -9,6 +9,8 @@ def index(request):
     """ Index of store cupboard
     """
     user = request.user
+    # items = Item.objects.filter(owner=user)
+
     items = Item.objects.filter(owner=user)
 
     c = {
