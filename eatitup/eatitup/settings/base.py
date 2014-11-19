@@ -106,6 +106,7 @@ ROOT_URLCONF = 'eatitup.urls'
 WSGI_APPLICATION = 'eatitup.wsgi.application'
 
 LOGIN_URL = reverse_lazy('user_login')
+LOGIN_REDIRECT_URL = reverse_lazy('user_profile')
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

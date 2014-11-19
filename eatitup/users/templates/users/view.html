@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>User Profile</h1>
+
+    <dl>
+        <dt>Username</dt>
+        <dd>{{ user.username }}</dd>
+    </dl>
+    <dl>
+        <dt>First Name</dt>
+        <dd>{{ user.first_name }}</dd>
+    </dl>
+    <dl>
+        <dt>Surname</dt>
+        <dd>{{ user.last_name }}</dd>
+    </dl>
+{% endblock %}
