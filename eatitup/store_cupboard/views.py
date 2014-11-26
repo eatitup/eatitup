@@ -27,11 +27,11 @@ def add(request):
 
     if request.method == 'POST':
         item_form = ItemModelForm(request.POST)
-        item = item_form.save(commit=False)
-        item.owner = user
-        item.save()
-
-        return redirect('store_cupboard_index')
+        if item_form.is_valid():
+            item = item_form.save(commit=False)
+            item.owner = user
+            item.save()
+            return redirect('store_cupboard_index')
 
     else:
         item_form = ItemModelForm()
