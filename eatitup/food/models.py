@@ -63,7 +63,7 @@ class Food(models.Model):
     category = models.ForeignKey(Category, blank=True)
     default_unit = models.ForeignKey(Unit, blank=True)
     notification_period = models.IntegerField(default=7)
-    is_approved = models.BooleanField()
+    is_approved = models.BooleanField(default=None)
 
     def __str__(self):
         """ Return foods name
